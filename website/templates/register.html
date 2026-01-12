@@ -4,4 +4,33 @@
 
 <h1>Register</h1>
 
+<br/>
+
+<div class="col-md-6 offset-md-3">
+
+    <form method="POST" action="">
+
+    {% csrf_token %}
+
+    {% if form.errors %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Please correct the errors below.
+            {% for field in form %}
+                {% for error in field.errors %}
+                    {{ field.errors }}
+                {% endfor %}
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+        {% endif %}
+        
+    {{ form.as_p }}
+
+
+
+
+    <button type="submit" class="btn btn-secondary">Register</button>
+    </form>
+
+
 {% endblock %}
